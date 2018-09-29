@@ -82,7 +82,7 @@ Required python libs :
 ### Quickstart
 
 ```shell
-python scrap_auchan.py
+python parser_auchan.py
 ```
 
 ## Production eligibility
