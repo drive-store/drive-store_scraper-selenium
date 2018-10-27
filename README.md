@@ -8,6 +8,8 @@
    1. [General](#general)
    1. [Configuration](#configuration)
 1. [Dependencies](#dependencies)
+   1. [Python dependencies](#python-dependencies)
+   1. [Browser dependencies](#browser-dependencies)
 1. [Run the app](#run-the-app)
    1. [Quickstart](#quickstart)
 1. [Production eligibility](#production-eligibility)
@@ -70,12 +72,19 @@ All the application configuration is stored in the `conf/` directory.
 
 ## Dependencies
 
+### Python dependencies
+
 Python version is `python-3.4` because of dependencies with python3-pip which allows me only to install `pip` for python `2.7` and `3.4`..
 
-Required python libs :
+Required python libs:
 * `selenium`
 * `pymongo`
 
+### Browser dependencies
+
+Required packages installed:
+* Chrome browser
+* WebDriver for Chrome - [Chromedriver](http://chromedriver.chromium.org/downloads) (related to browser version)
 
 ## Run the app
 
