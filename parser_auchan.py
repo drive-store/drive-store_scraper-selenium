@@ -53,6 +53,7 @@ def main():
 
         product_location = driver.find_element_by_xpath(PRODUCT_LOCATION_SELECTOR).text
         print("Visit Auchan Drive %s" % (product_location))
+        #driver.save_screenshot("auchan_"+product_location+".png")
 
         for product_url in list_products:
             PRODUCT_NAME_SELECTOR = './/p[@class="pdp-infos__title"]'
@@ -60,10 +61,7 @@ def main():
             PRODUCT_PRICEPER_SELECTOR = './/p[@class="price--per"]'
 
             driver.get(product_url)
-            #try:
-            #    driver.get(url)
-            #except:
-            #    driver.close()
+            #driver.save_screenshot("auchan_"+product_location+"_"+product_name+".png")
 
             product_name = driver.find_element_by_xpath(PRODUCT_NAME_SELECTOR).text
             product_price = "".join(driver.find_element_by_xpath(PRODUCT_PRICE_SELECTOR).text).replace("\u20ac", "").replace(" ", "")
