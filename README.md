@@ -98,3 +98,7 @@ python parser_auchan.py
 
 Coming soon...
 
+## Next steps
+* Browser Carrefour Store Drive to find product
+* Enable Product Tags to better search products on Store Drives
+* ...
