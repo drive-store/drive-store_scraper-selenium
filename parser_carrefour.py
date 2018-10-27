@@ -10,7 +10,8 @@ list_stores = [
 ]
 
 list_products = [
-    "https://courses-en-ligne.carrefour.fr/5449000054227/soda-coca-cola",
+    "https://courses-en-ligne.carrefour.fr/5449000133328/soda-zero-sucres-coca-cola-zero",
+    "https://courses-en-ligne.carrefour.fr/5000112611762/soda-zero-sucres-coca-cola",
 ]
 
 
@@ -19,6 +20,7 @@ def init_browser_chrome():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36")
     try:
         driver = webdriver.Chrome('chromedriver', chrome_options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
     except:
@@ -43,26 +45,22 @@ def main():
 
         driver = init_browser_chrome()
         driver.get(store_url)
-        print(dir(driver))
-        print(driver.find_element_by_xpath("//*").get_attribute('outerHTML'))
-        #try:
-        #    driver.get(store_url)
-        #except:
-        #    driver.close()
 
         product_location = driver.find_element_by_xpath(PRODUCT_LOCATION_SELECTOR).text #.split(" - ")[1]
-        print("Visit Auchan Drive %s" % (product_location))
+        print("Visit Carrefour Drive %s" % (product_location))
+        #driver.save_screenshot("carrefour_"+product_location+".png")
 
         for product_url in list_products:
-            PRODUCT_NAME_SELECTOR = './/p[@class="cd-ProductPageTitle cd-span-h1"]'
-            PRODUCT_PRICE_SELECTOR = './/p[@class="cd-ProductPriceUnit"]/span'
-            PRODUCT_PRICEPER_SELECTOR = './/p[@class="cd-ProductPriceReference"]'
+            PRODUCT_NAME_SELECTOR = '//span[@class="cd-ProductPageTitle cd-span-h1"]'
+            PRODUCT_PRICE_SELECTOR = '//div[@class="cd-ProductPriceUnit"]'
+            PRODUCT_PRICEPER_SELECTOR = '//div[@class="cd-ProductPriceReference"]'
 
             driver.get(product_url)
-            #try:
-            #    driver.get(url)
-            #except:
-            #    driver.close()
+            # Prevent to Not found product in Store
+            #  Products URL are different by store
+            if len(driver.find_elements_by_xpath('//p[@class="MiscPage-description"]')):
+                print("Error in location '%s' for url '%s'" % (product_location, product_url))
+                continue
 
             product_name = driver.find_element_by_xpath(PRODUCT_NAME_SELECTOR).text
             product_price = "".join(driver.find_element_by_xpath(PRODUCT_PRICE_SELECTOR).text).replace("\u20ac", "").replace(" ", "")
@@ -76,6 +74,7 @@ def main():
                 'Price': product_price,
                 'Priceper': product_priceper,
             }
+            #driver.save_screenshot("carrefour_"+product_location+"_"+product_name+".png")
 
             save_mongo(product_data)
 
