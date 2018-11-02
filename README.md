@@ -88,11 +88,21 @@ Required packages installed:
 
 ## Run the app
 
+We focus on script `parser_auchan_search.py`.
+
 ### Quickstart
 
 ```shell
-python parser_auchan.py
+python parser_auchan_search.py
 ```
+
+### Configure Locations
+
+Change variable `list_stores` to redirect Carrefour Stores to look up.
+
+### Configure Products
+
+Change variable `list_products` to focus on product through keywords.
 
 ## Production eligibility
 
