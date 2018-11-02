@@ -1,1 +1,4 @@
 Pipfile*
+chromedriver*.exe
+carrefour_*.png
+auchan_*.png
