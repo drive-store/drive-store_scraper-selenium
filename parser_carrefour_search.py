@@ -48,7 +48,7 @@ def go_homepage(driver):
 def go_drive_location(driver, store_url):
     #print("go_drive_location")
     driver.get(store_url)
-    _driver.save_screenshot("carrefour-go_drive_location.png")
+    driver.save_screenshot("carrefour_go_drive_location.png")
 
     for product_tags in list_products:
         go_search_product(driver, product_tags)
