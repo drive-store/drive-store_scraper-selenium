@@ -1,5 +1,7 @@
 # Drive Store Scraper Selenium
 
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg)
+
 **Summary**
 1. [Global View](#global-view)
    1. [Global application](#global-application)
