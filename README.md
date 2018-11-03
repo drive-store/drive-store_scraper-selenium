@@ -95,6 +95,19 @@ We focus on script `parser_auchan_search.py`.
 ```shell
 python parser_auchan_search.py
 ```
+Output:
+```
+{'Date': datetime.datetime(2018, 11, 3, 10, 29, 59, 184227), 'Company': 'Carrefour', 'Location': 'DRIVE - Market Lille Fives', 'Product': "Soda zero sucres Coca-Cola Zero la bouteille d'1L", 'Price': '1,24', 'Priceper': '1.24'}
+go_search_product
+go_result_products_through_new_website
+{'Date': datetime.datetime(2018, 11, 3, 10, 30, 1, 717616), 'Company': 'Carrefour', 'Location': 'DRIVE - Market Lille Fives', 'Product': 'Jus de citron bio pur jus Carrefour Bio la bouteille de 25cL', 'Price': '1,50', 'Priceper': '6.00'}
+go_search_product
+go_result_products_through_new_website
+{'Date': datetime.datetime(2018, 11, 3, 10, 30, 6, 782791), 'Company': 'Carrefour', 'Location': 'DRIVE - Market La Madeleine', 'Product': "Soda zero sucres Coca-Cola Zero la bouteille d'1L", 'Price': '1,24', 'Priceper': '1.24'}
+go_search_product
+go_result_products_through_new_website
+{'Date': datetime.datetime(2018, 11, 3, 10, 30, 8, 951044), 'Company': 'Carrefour', 'Location': 'DRIVE - Market La Madeleine', 'Product': 'Jus de citron bio pur jus Carrefour Bio la bouteille de 25cL', 'Price': '1,59', 'Priceper': '6.36'}
+```
 
 ### Configure Locations
 
