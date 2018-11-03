@@ -54,7 +54,7 @@ def go_drive_location(driver, store_url):
         go_search_product(driver, product_tags)
 
 def go_search_product(driver, product_tags):
-    print("go_search_product")
+    #print("go_search_product")
     #try:
     #    driver.get("https://courses-en-ligne.carrefour.fr/search?q=" + product_tags)
     #    go_result_products(driver)
@@ -70,7 +70,7 @@ def go_search_product(driver, product_tags):
     driver.save_screenshot("carrefour_go_search_product.png")
 
 def go_result_products(driver):
-    print("go_result_products")
+    #print("go_result_products")
     product = {}
     
     PRODUCT_LOCATION_SELECTOR = './/span[@class="cd-HeaderShopInfosAdress"]'
@@ -98,7 +98,7 @@ def go_result_products(driver):
     db_save(product)
 
 def go_result_products_through_new_website(driver):
-    print("go_result_products_through_new_website")
+    #print("go_result_products_through_new_website")
     product = {}
     
     PRODUCT_LOCATION_SELECTOR = './/span[@class="channel-head__right-content__title"]'
