@@ -122,6 +122,7 @@ Change variable `list_products` to focus on product through keywords.
 Coming soon...
 
 ## Next steps
-* Browser Carrefour Store Drive to find product
-* Enable Product Tags to better search products on Store Drives
+* [X] Browser Carrefour Store Drive to find product
+* [ ] User a [random User-Agent](https://stackoverflow.com/questions/48454949/how-do-i-create-a-random-user-agent-in-python-selenium)
+* [ ] Enable Product Tags to better search products on Store Drives
 * ...
