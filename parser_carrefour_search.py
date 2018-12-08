@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-import re, datetime
+import re, datetime, time
 import pymongo
 from pymongo import MongoClient
 from selenium import webdriver
@@ -7,11 +7,14 @@ from selenium import webdriver
 list_stores = [
     "https://courses-en-ligne.carrefour.fr/set-store/1019?sectorZip=59000&sectorCity=LILLE",
     "https://courses-en-ligne.carrefour.fr/set-store/276?sectorZip=59000&sectorCity=Lille",
+    "https://courses-en-ligne.carrefour.fr/set-store/106?sectorZip=59461&sectorCity=LOMME",
+    "https://courses-en-ligne.carrefour.fr/set-store/109?sectorZip=59290&sectorCity=WASQUEHAL",
 ]
 
 list_products = [
     "coca cola zero 1l",
     "jus citron bio carrefour",
+    "litiere hygiene catsan",
 ]
 
 
@@ -25,12 +28,13 @@ def main():
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36")
+    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36")
     try:
         driver = webdriver.Chrome('chromedriver', options=chrome_options, service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
     except:
         driver.close()
 
+    time.sleep(6)
     go_homepage(driver)
     #try:
     #    go_homepage(driver)
@@ -43,11 +47,13 @@ def go_homepage(driver):
     #print("go_homepage")
     driver.get("https://courses-en-ligne.carrefour.fr")
     for store_url in list_stores:
+        time.sleep(6)
         go_drive_location(driver, store_url)
 
 def go_drive_location(driver, store_url):
     #print("go_drive_location")
     driver.get(store_url)
+    time.sleep(6)
     driver.save_screenshot("carrefour_go_drive_location.png")
 
     for product_tags in list_products:
@@ -63,6 +69,7 @@ def go_search_product(driver, product_tags):
     #    pass
     try:
         driver.get("https://new.carrefour.fr/s?q=" + product_tags)
+        time.sleep(6)
         go_result_products_through_new_website(driver)
     except:
         driver.close()
